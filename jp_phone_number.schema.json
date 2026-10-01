@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/jp_phone_number.schema.json",
+  "$id": "https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/jp_phone_number.schema.json",
   "title": "日本の電話番号の決まり（jp_phone_number.json）",
   "description": "総務省「電気通信番号指定状況」を加工して作った、国内の書き方（0 から始まる数字）の電話番号の種類・桁数・区切りの表。",
   "type": "object",

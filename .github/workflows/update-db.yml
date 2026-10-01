@@ -2,8 +2,8 @@ name: Update phone number database
 
 on:
   schedule:
-    # 毎日 00:00 UTC (= 09:00 JST)。総務省の更新は月に 1 回程度なので、ほとんどの日は何もしない
-    - cron: "0 0 * * *"
+    # 毎月7日 00:17 UTC (= 09:17 JST)。総務省は月初の時点でページを更新するので、その後に1回だけチェックする
+    - cron: "17 0 7 * *"
   workflow_dispatch:
     inputs:
       force:

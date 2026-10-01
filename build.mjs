@@ -68,7 +68,7 @@ for (const b of blocks) {
 
 // 3. 表にする
 const table = {
-    $schema: 'https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/jp_phone_number.schema.json',
+    $schema: 'https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/jp_phone_number.schema.json',
     format: FORMAT,
     version: page.asOf,
     generatedAt: new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'),

@@ -2,7 +2,7 @@
 
 総務省が公開している「[電気通信番号指定状況](https://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html)」
 から、日本の電話番号の決まり（市外局番の桁数・番号の種類ごとの桁数と区切り）を作って配布しています。
-毎日自動チェックし、元データが更新されていれば追随します（[GitHub Actions](.github/workflows/update-db.yml)）。
+毎月1回自動チェックし、元データが更新されていれば追随します（[GitHub Actions](.github/workflows/update-db.yml)）。
 
 - **`jp_phone_number.json`**（正本）: 番号を「03-1234-5678」「0467-12-3456」「090-1234-5678」のように
   区切る・桁数を確かめるための表。入力フォームの検証やハイフン入れにそのまま使えます（約 15KB）。
@@ -15,18 +15,18 @@
 
 ## ダウンロード
 
-以下のURLから常に最新版を取得できます（[Releases](https://github.com/kobesoft-inc/jp-phone-number-db/releases)）。
+以下のURLから常に最新版を取得できます（[Releases](https://github.com/kobesoft-labs/jp-phone-number-db/releases)）。
 
 ```
-https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/jp_phone_number.json
-https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/jp_phone_number.db
-https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/jp_phone_number.schema.json
-https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/SHA256SUMS
+https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/jp_phone_number.json
+https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/jp_phone_number.db
+https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/jp_phone_number.schema.json
+https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/SHA256SUMS
 ```
 
 ```bash
-curl -L -O https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/jp_phone_number.json
-curl -L -O https://github.com/kobesoft-inc/jp-phone-number-db/releases/latest/download/SHA256SUMS
+curl -L -O https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/jp_phone_number.json
+curl -L -O https://github.com/kobesoft-labs/jp-phone-number-db/releases/latest/download/SHA256SUMS
 shasum -a 256 -c SHA256SUMS --ignore-missing
 ```
 
@@ -146,8 +146,8 @@ WHERE number = substr('0352535111', 1, 6);
 
 ## 更新頻度
 
-毎日09:00 JSTに、総務省のページから最新の Excel を読み直して表を作り、**中身が前回と変わった場合のみ**
-コミットして最新版をリリースします（更新が無い日は何もしません）。総務省はページの時点を毎月進めますが、
+毎月7日 09:17 JSTに、総務省のページから最新の Excel を読み直して表を作り、**中身が前回と変わった場合のみ**
+コミットして最新版をリリースします（更新が無ければ何もしません）。総務省はページの時点を毎月進めますが、
 更新のない番号種別のファイルはそのままなので、ページの時点だけが進んだときはリリースしません。
 リリースのタグは `db-<データの版>`（例: `db-2026-09-01`）です。過去のリリースは残さず、常に最新版のみを
 公開しています。
